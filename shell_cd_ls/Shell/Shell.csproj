@@ -61,6 +61,8 @@
     <Compile Include="Expression\SequenceExpression.cs" />
     <Compile Include="Shell.cs" />
     <Compile Include="Commands\WcCommand.cs" />
+    <Compile Include="Commands\CdCommand.cs" />
+    <Compile Include="Commands\LsCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

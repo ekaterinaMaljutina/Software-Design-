@@ -15,6 +15,8 @@ namespace Shell
             CommandStorer.Add("cat", new CatCommand());
             CommandStorer.Add("wc", new WcCommand());
             CommandStorer.Add("exit", new ExitCommand());
+            CommandStorer.Add("cd", new CdCommand());
+            CommandStorer.Add("ls", new LsCommand());
         }
 
         static public void Start()
@@ -32,6 +34,11 @@ namespace Shell
                 if (comResult != null) {
                     Command currentCommand = comResult.First() as Command;
                     currentCommand.Execute();
+                    Console.WriteLine("currentCommand name {0} ",currentCommand.Name);
+                    Console.WriteLine("cd currentDirectory {0}",CommandStorer.Find("cd").currentDirectory);
+                    CommandStorer.ChangeItemValue("ls", CommandStorer.Find("cd").currentDirectory);
+                    Console.WriteLine("ls currentDirectory {0}",CommandStorer.Find("ls").currentDirectory);
+
                 }
             }
         }

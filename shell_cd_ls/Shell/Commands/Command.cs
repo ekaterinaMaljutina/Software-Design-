@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 
 namespace Shell
 { 
@@ -15,6 +16,8 @@ namespace Shell
         protected List<Argument> args = new List<Argument>();
         protected int argsCount;
         protected String output = "";
+
+        public String currentDirectory {set; get;} = "/";
         public String Name { get; }
 
         public Command(String name = "", int argsCount = 0)
@@ -22,6 +25,7 @@ namespace Shell
             Name = name;
             this.argsCount = argsCount;
             base.IsCommand = true;
+            currentDirectory = Directory.GetCurrentDirectory();
         }
 
 

@@ -61,5 +61,61 @@ namespace UnitTestShell
             echo.Execute();
             Assert.IsTrue(ArgumentStorer.Find("echo").Content.StartsWith("Error "));
         }
+        
+        [TestMethod]
+        public void TestMethodCd() 
+        {
+            CdCommand cd = new CdCommand();
+            cd.Execute();
+
+            String path = Directory.GetCurrentDirectory();
+            Assert.AreEqual(path, ArgumentStorer.Find("cd").Content);
+            
+            cd.AddArgument(new Argument("..", TypeCode.Single));
+            cd.Execute();
+
+            path = Directory.GetParent(path).FullName;
+            Assert.AreEqual(path, ArgumentStorer.Find("cd").Content);
+            
+            cd.AddArgument(new Argument("..", TypeCode.Single));
+            cd.Execute();
+
+            path = Directory.GetParent(path).FullName;
+            Assert.AreEqual(path, ArgumentStorer.Find("cd").Content);
+
+            cd.Execute();
+            Assert.AreEqual(Directory.GetDirectoryRoot(path), ArgumentStorer.Find("cd").Content);
+                        
+        }
+
+        private String prepare(String path) {
+            String res = "";
+            foreach( string str in Directory.GetFileSystemEntries(path) ) 
+            {
+                res += String.Format("{0}  ",str.Replace(path,""));
+            }
+            return res;
+        }
+
+        [TestMethod]
+        public void TestMethodLs() 
+        {
+            LsCommand ls = new LsCommand();
+            ls.Execute();
+            String path = Directory.GetCurrentDirectory();
+            String res = prepare(path);
+            Assert.AreEqual(res, ArgumentStorer.Find("ls").Content);
+
+            CdCommand cd = new CdCommand();
+            cd.AddArgument(new Argument("..",TypeCode.String));
+            cd.Execute();
+
+            path = cd.currentDirectory;
+
+            res = prepare(path);
+            ls.Execute();
+            Assert.AreEqual(res, ArgumentStorer.Find("ls").Content);
+        }
+
     }
 }

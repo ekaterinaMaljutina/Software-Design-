@@ -18,6 +18,14 @@ namespace Shell
                 varDict.Add(new KeyValuePair<String, Command>(key, value));
         }
 
+        public static bool ChangeItemValue(String key, String item) {
+            if (varDict.ContainsKey(key)) {
+                varDict[key].currentDirectory = item;
+                return true;
+            }
+            return false;
+        }
+
         public static Command Find(String key) => varDict.ContainsKey(key) ? varDict[key] : null;
 
         public static void Delete(String key)
