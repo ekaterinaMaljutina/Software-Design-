@@ -1,8 +1,0 @@
-HOME /home
-VAR   /tmp/
-EXIT   exit
-FILE   ./build.gradle
-F   ./build.gradle
-FIL   ./build.gradle
-I   ./build.gradle
-R ./build.gradle
