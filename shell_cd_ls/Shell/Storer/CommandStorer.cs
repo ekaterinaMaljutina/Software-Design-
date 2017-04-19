@@ -20,7 +20,7 @@ namespace Shell
 
         public static bool ChangeItemValue(String key, String item) {
             if (varDict.ContainsKey(key)) {
-                varDict[key].currentDirectory = item;
+                Command.currentDirectory = item;
                 return true;
             }
             return false;

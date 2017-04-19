@@ -35,9 +35,9 @@ namespace Shell
                     Command currentCommand = comResult.First() as Command;
                     currentCommand.Execute();
                     Console.WriteLine("currentCommand name {0} ",currentCommand.Name);
-                    Console.WriteLine("cd currentDirectory {0}",CommandStorer.Find("cd").currentDirectory);
-                    CommandStorer.ChangeItemValue("ls", CommandStorer.Find("cd").currentDirectory);
-                    Console.WriteLine("ls currentDirectory {0}",CommandStorer.Find("ls").currentDirectory);
+                    Console.WriteLine("cd currentDirectory {0}",Command.currentDirectory);
+                    CommandStorer.ChangeItemValue("ls", Command.currentDirectory);
+                    Console.WriteLine("ls currentDirectory {0}",Command.currentDirectory);
 
                 }
             }

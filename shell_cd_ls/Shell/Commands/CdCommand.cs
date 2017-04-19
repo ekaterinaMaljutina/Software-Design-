@@ -14,7 +14,7 @@ namespace Shell
         private String roodDirectory = null;
 
         public CdCommand(): base("cd", Command.EndlessArgsCount) {
-            currentDirectory = Directory.GetCurrentDirectory();
+            currentDirectory = Command.currentDirectory;
             roodDirectory = Directory.GetDirectoryRoot(currentDirectory);
          }
 

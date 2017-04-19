@@ -27,7 +27,7 @@ namespace Shell
             base.output = "";
             if (base.args.Count() == Command.NoArgsCount)
             {
-                printFilesInDir(currentDirectory);
+                printFilesInDir(Command.currentDirectory);
                 base.CreateOutput();
                 return;
             }

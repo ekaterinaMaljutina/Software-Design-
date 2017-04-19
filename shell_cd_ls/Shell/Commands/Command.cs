@@ -17,7 +17,7 @@ namespace Shell
         protected int argsCount;
         protected String output = "";
 
-        public String currentDirectory {set; get;} = "/";
+        public static String currentDirectory {set; get;} = Directory.GetCurrentDirectory();
         public String Name { get; }
 
         public Command(String name = "", int argsCount = 0)
@@ -25,7 +25,6 @@ namespace Shell
             Name = name;
             this.argsCount = argsCount;
             base.IsCommand = true;
-            currentDirectory = Directory.GetCurrentDirectory();
         }
 
 
