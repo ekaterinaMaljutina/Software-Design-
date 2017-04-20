@@ -66,18 +66,19 @@ namespace UnitTestShell
         public void TestMethodCd() 
         {
             CdCommand cd = new CdCommand();
+            cd.AddArgument(new Argument(".", TypeCode.String));
             cd.Execute();
 
             String path = Directory.GetCurrentDirectory();
             Assert.AreEqual(path, ArgumentStorer.Find("cd").Content);
             
-            cd.AddArgument(new Argument("..", TypeCode.Single));
+            cd.AddArgument(new Argument("..", TypeCode.String));
             cd.Execute();
 
             path = Directory.GetParent(path).FullName;
             Assert.AreEqual(path, ArgumentStorer.Find("cd").Content);
             
-            cd.AddArgument(new Argument("..", TypeCode.Single));
+            cd.AddArgument(new Argument("..", TypeCode.String));
             cd.Execute();
 
             path = Directory.GetParent(path).FullName;
@@ -102,7 +103,7 @@ namespace UnitTestShell
         {
             LsCommand ls = new LsCommand();
             ls.Execute();
-            String path = Directory.GetCurrentDirectory();
+            String path = Command.currentDirectory;
             String res = prepare(path);
             Assert.AreEqual(res, ArgumentStorer.Find("ls").Content);
 
