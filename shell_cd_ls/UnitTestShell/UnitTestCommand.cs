@@ -85,7 +85,8 @@ namespace UnitTestShell
             Assert.AreEqual(path, ArgumentStorer.Find("cd").Content);
 
             cd.Execute();
-            Assert.AreEqual(Directory.GetDirectoryRoot(path), ArgumentStorer.Find("cd").Content);
+            path = Directory.GetDirectoryRoot(path);
+            Assert.AreEqual(path, Command.currentDirectory);
                         
         }
 
@@ -111,7 +112,7 @@ namespace UnitTestShell
             cd.AddArgument(new Argument("..",TypeCode.String));
             cd.Execute();
 
-            path = cd.currentDirectory;
+            path = Command.currentDirectory;
 
             res = prepare(path);
             ls.Execute();
