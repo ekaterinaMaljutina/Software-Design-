@@ -21,7 +21,7 @@ namespace Shell
 
          private void PrintCurrentDir() 
          {
-             base.output += String.Format("current directory is: {0}", currentDirectory);
+            base.output = currentDirectory;
          }
 
          private Tuple<bool,String> checkDirectory(String toDirectory) 
@@ -29,7 +29,7 @@ namespace Shell
             bool checkDirectory = false;
             String[] filesCurrentDirectory = Directory.GetDirectories(currentDirectory);
             
-            String fullPathToDir = currentDirectory + "/" + toDirectory;
+            String fullPathToDir = currentDirectory + "\\" + toDirectory;
             
             foreach (String file in filesCurrentDirectory) 
             {
@@ -61,7 +61,7 @@ namespace Shell
                 switch (toDirectory) 
                 {
                     case ".." : //back directory                        
-                        if (!currentDirectory.Equals("/")) 
+                        if (!currentDirectory.Equals("/") && !currentDirectory.Equals(roodDirectory)) 
                         {
                             currentDirectory = Directory.GetParent(currentDirectory).FullName;
                         }
@@ -97,6 +97,7 @@ namespace Shell
         {
             CreateOutput();
             Console.WriteLine(base.output);
+            Command.currentDirectory = currentDirectory;
         }
     }
 }
