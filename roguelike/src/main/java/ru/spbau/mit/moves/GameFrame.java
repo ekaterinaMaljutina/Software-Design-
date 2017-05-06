@@ -9,7 +9,6 @@ import ru.spbau.mit.game.World;
 import ru.spbau.mit.gameObject.GameObject.GameObject;
 import ru.spbau.mit.gameObject.ObjectCreator.hero.Hero;
 import ru.spbau.mit.moves.map.WorldMap;
-import ru.spbau.mit.moves.inputListener.KeyBoardInputListener;
 import ru.spbau.mit.ui.DrawMap;
 
 import javax.swing.*;
@@ -42,7 +41,7 @@ public class GameFrame extends JFrame {
             throw new RuntimeException();
         }
         panel = new AsciiPanel();
-        setSize(WINDOWS_Height,WINDOWS_Weight);
+        setSize(WINDOWS_Height, WINDOWS_Weight);
         add(panel);
         setResizable(false);
         setLocationRelativeTo(null);

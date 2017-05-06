@@ -3,7 +3,6 @@ package ru.spbau.mit.ui;
 import asciiPanel.AsciiPanel;
 import com.sun.istack.internal.NotNull;
 import ru.spbau.mit.gameObject.ObjectCreator.hero.Hero;
-import ru.spbau.mit.gameObject.ObjectCreator.mob.Mob;
 import ru.spbau.mit.gameObject.ObjectCreator.mob.Orc;
 import ru.spbau.mit.gameObject.ObjectCreator.mob.Troll;
 import ru.spbau.mit.moves.gamePoint.Position;

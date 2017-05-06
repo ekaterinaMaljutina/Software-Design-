@@ -16,7 +16,8 @@ public class Game {
     private World world;
     private KeyBoardInputListener strategy = new KeyBoardInputListener();
     private MobRandomStrategy mobRandomStrategy = new MobRandomStrategy();
-    private Consumer<World> render = (world) -> {};
+    private Consumer<World> render = (world) -> {
+    };
 
     public Game() {
         world = new World(new WorldMap(PATH_TO_MAP));

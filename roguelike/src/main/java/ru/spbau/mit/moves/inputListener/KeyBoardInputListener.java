@@ -2,7 +2,6 @@ package ru.spbau.mit.moves.inputListener;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.spbau.mit.game.World;
 import ru.spbau.mit.gameObject.ObjectCreator.Creature;
 import ru.spbau.mit.gameObject.ObjectCreator.hero.Hero;
 import ru.spbau.mit.moves.gamePoint.Movement;

@@ -69,7 +69,7 @@ public class WorldMap {
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
                 if (map[i][j] == CellType.EMPTY) {
-                    emptyPositions.add(new Position(i,j));
+                    emptyPositions.add(new Position(i, j));
                 }
             }
         }

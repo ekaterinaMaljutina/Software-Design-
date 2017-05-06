@@ -6,7 +6,7 @@ import ru.spbau.mit.moves.map.WorldMap;
 
 import java.util.Random;
 
-public class MobRandomStrategy implements Strategy{
+public class MobRandomStrategy implements Strategy {
 
     private static Random random = new Random();
 
