@@ -8,10 +8,6 @@ import ru.spbau.mit.ui.MoveObject;
 
 public class Util {
 
-    public static Attributes createAttributes(int healf, int attack) {
-        return new Attributes(healf,attack);
-    }
-
     public static Creature createCreature(Position position, Attributes attributes) {
         return new Creature(position, attributes) {
             @Override

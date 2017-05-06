@@ -55,11 +55,11 @@ public class KeyBoardInputListener extends KeyAdapter implements Strategy {
                     } catch (InterruptedException ex) {
                         break;
                     }
-                    Movement currentMove = queueMoves.remove();
-                    LOGGER.info(String.format("MOVE HERO to %s", currentMove));
-                    if (currentMove != null) {
-                        return currentMove;
-                    }
+                }
+                Movement currentMove = queueMoves.remove();
+                LOGGER.info(String.format("MOVE HERO to %s", currentMove));
+                if (currentMove != null) {
+                    return currentMove;
                 }
             }
         }
