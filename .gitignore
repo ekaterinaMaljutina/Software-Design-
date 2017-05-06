@@ -4,7 +4,7 @@
 .mtj.tmp/
 .idea/
 .gradle/
-gradle/
+build/
 
 # Package Files #
 *.jar

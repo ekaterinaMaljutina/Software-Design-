@@ -1,0 +1,25 @@
+23:33:36.879 [main] INFO  ru.spbau.mit.moves.GameFrame - Create game frame
+23:33:38.215 [main] INFO  ru.spbau.mit.moves.inputListener.KeyBoardInputListener - MOVE HERO to DOWN
+23:33:39.371 [main] INFO  ru.spbau.mit.moves.inputListener.KeyBoardInputListener - MOVE HERO to LEFT
+23:33:39.902 [main] INFO  ru.spbau.mit.moves.inputListener.KeyBoardInputListener - MOVE HERO to DOWN
+23:33:39.902 [main] INFO  ru.spbau.mit.game.World - ru.spbau.mit.gameObject.ObjectCreator.mob.Troll with healf = 100  attack hero 
+23:33:39.903 [main] INFO  ru.spbau.mit.game.World - after attact  ru.spbau.mit.gameObject.ObjectCreator.mob.Troll with healf = 40
+23:33:39.903 [main] INFO  ru.spbau.mit.game.World - after attact hero healf = 100
+23:33:39.903 [main] INFO  ru.spbau.mit.game.World - ru.spbau.mit.gameObject.ObjectCreator.mob.Troll attack hero 
+23:33:40.693 [main] INFO  ru.spbau.mit.moves.inputListener.KeyBoardInputListener - MOVE HERO to LEFT
+23:33:41.204 [main] INFO  ru.spbau.mit.moves.inputListener.KeyBoardInputListener - MOVE HERO to DOWN
+23:33:41.711 [main] INFO  ru.spbau.mit.moves.inputListener.KeyBoardInputListener - MOVE HERO to DOWN
+23:33:42.295 [main] INFO  ru.spbau.mit.moves.inputListener.KeyBoardInputListener - MOVE HERO to DOWN
+23:33:42.295 [main] INFO  ru.spbau.mit.game.World - ru.spbau.mit.gameObject.ObjectCreator.mob.Troll with healf = 60  attack hero 
+23:33:42.296 [main] INFO  ru.spbau.mit.game.World - after attact  ru.spbau.mit.gameObject.ObjectCreator.mob.Troll with healf = 30
+23:33:42.296 [main] INFO  ru.spbau.mit.game.World - after attact hero healf = 60
+23:33:42.296 [main] INFO  ru.spbau.mit.game.World - ru.spbau.mit.gameObject.ObjectCreator.mob.Troll attack hero 
+23:33:43.095 [main] INFO  ru.spbau.mit.moves.inputListener.KeyBoardInputListener - MOVE HERO to RIHGT
+23:33:43.095 [main] INFO  ru.spbau.mit.game.World - ru.spbau.mit.gameObject.ObjectCreator.mob.Orc with healf = 20  attack hero 
+23:33:43.096 [main] INFO  ru.spbau.mit.game.World - after attact  ru.spbau.mit.gameObject.ObjectCreator.mob.Orc with healf = 20
+23:33:43.096 [main] INFO  ru.spbau.mit.game.World - after attact hero healf = 20
+23:33:43.097 [main] INFO  ru.spbau.mit.game.World - ru.spbau.mit.gameObject.ObjectCreator.mob.Orc attack hero 
+23:33:43.097 [main] INFO  ru.spbau.mit.game.World - ru.spbau.mit.gameObject.ObjectCreator.mob.Troll with healf = 0  attack hero 
+23:33:43.097 [main] INFO  ru.spbau.mit.game.World - after attact  ru.spbau.mit.gameObject.ObjectCreator.mob.Troll with healf = 20
+23:33:43.097 [main] INFO  ru.spbau.mit.game.World - after attact hero healf = 0
+23:33:43.098 [main] INFO  ru.spbau.mit.game.World - ru.spbau.mit.gameObject.ObjectCreator.mob.Troll attack hero 
