@@ -12,18 +12,30 @@ namespace Shell
     {
         public LsCommand(): base("ls", Command.EndlessArgsCount) { }   
 
-        private void PrintFilesInDir (String dir)
+        private void PrintFilesInDir (String dir, String baseDir)
         {
             try
             {
                 String[] res = Directory.GetFileSystemEntries(dir);
+               
                 foreach (String str in res)
                 {
                     base.output += String.Format("{0}  ", str.Replace(dir, ""));
                 }
-            } catch(Exception)
+            }
+            catch(DirectoryNotFoundException)
             {
-                Console.WriteLine("current dir = " + dir + ", not found");
+                String fullPath = currentDirectory;
+                if (currentDirectory[currentDirectory.Length - 1] != '\\')
+                {
+                    fullPath += "\\";
+                }
+                fullPath += dir;
+                PrintFilesInDir(fullPath, baseDir);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("current dir = " + baseDir + ", not found");
             }
         }
         
@@ -35,14 +47,14 @@ namespace Shell
             base.output = "";
             if (base.args.Count() == Command.NoArgsCount)
             {
-                PrintFilesInDir (Command.currentDirectory);
+                PrintFilesInDir (Command.currentDirectory, Command.currentDirectory);
                 base.CreateOutput();
                 return;
             }
             if (base.args.Last() != null && base.args.Last().Type == TypeCode.String) 
             {
                 String getDir = base.args.Last().Content;
-                PrintFilesInDir(getDir);
+                PrintFilesInDir(getDir, getDir);
             }
             else 
             {
