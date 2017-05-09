@@ -23,19 +23,18 @@ namespace Shell
             base.output = currentDirectory;
          }
 
-         private Tuple<bool,String> checkDirectory(String toDirectory) 
+         private Tuple<bool,String> CheckDirectory(String toDirectory) 
          {
             bool checkDirectory = false;
-            Console.WriteLine(toDirectory);
-            String[] filesCurrentDirectory = Directory.GetDirectories(currentDirectory);
-            foreach (String str in filesCurrentDirectory) {
-                Console.Write(str + " ");
-            }
-            Console.WriteLine("");
-            String fullPathToDir = currentDirectory + "\\" + toDirectory;
             
-
-
+            String[] filesCurrentDirectory = Directory.GetDirectories(currentDirectory);
+         
+            String fullPathToDir = currentDirectory;
+            if (currentDirectory[currentDirectory.Length - 1] != '\\')
+            {
+                fullPathToDir += "\\";
+            }
+            fullPathToDir += toDirectory;
             foreach (String file in filesCurrentDirectory) 
             {
                 if (file.Equals(fullPathToDir)) 
@@ -63,7 +62,7 @@ namespace Shell
             }
             else
             {
-                Tuple<bool, String> res = checkDirectory(path);
+                Tuple<bool, String> res = CheckDirectory(path);
                 if (res.Item1)
                 {
                     currentDirectory = res.Item2;
