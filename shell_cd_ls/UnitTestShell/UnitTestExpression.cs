@@ -25,7 +25,7 @@ namespace UnitTestShell
             Command pipes = new Expression("cat " + file + " | wc").Interpret().First() as Command;
             pipes.Execute();
             String text = new StreamReader(file).ReadToEnd();
-            String result = text.Split('\n').Length.ToString() + " " + text.Split(' ', '\n').Length.ToString() + " " + new FileInfo("example.txt").Length;
+            String result = text.Split('\n').Length.ToString() + " " + text.Split(' ', '\n').Length.ToString() + " " + new FileInfo(file).Length;
             Assert.AreEqual(result, ArgumentStorer.Find("wc").Content);
 
             pipes = new Expression("cat " + file + " | wc | echo 'Result of wc '").Interpret().First() as Command;

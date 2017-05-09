@@ -8,14 +8,13 @@ namespace Shell
     /// Command for printing string
     /// </summary>
 
-    
     public class CdCommand: Command
     {
-        private String roodDirectory = null;
+        private string rootDirectory;
 
         public CdCommand(): base("cd", Command.EndlessArgsCount) {
             currentDirectory = Command.currentDirectory;
-            roodDirectory = Directory.GetDirectoryRoot(currentDirectory);
+            rootDirectory = Directory.GetDirectoryRoot(currentDirectory);
          }
 
 
@@ -27,10 +26,16 @@ namespace Shell
          private Tuple<bool,String> checkDirectory(String toDirectory) 
          {
             bool checkDirectory = false;
+            Console.WriteLine(toDirectory);
             String[] filesCurrentDirectory = Directory.GetDirectories(currentDirectory);
-            
+            foreach (String str in filesCurrentDirectory) {
+                Console.Write(str + " ");
+            }
+            Console.WriteLine("");
             String fullPathToDir = currentDirectory + "\\" + toDirectory;
             
+
+
             foreach (String file in filesCurrentDirectory) 
             {
                 if (file.Equals(fullPathToDir)) 
@@ -41,6 +46,56 @@ namespace Shell
             return new Tuple<bool,String>(checkDirectory, fullPathToDir);
          }
 
+        private void DefaultNextPath(string path)
+        {
+            string[] paths = path.Split('\\');
+
+            if (paths.Length > 1)
+            {
+                foreach (string str in paths)
+                {
+                    if (str != null && str != "")
+                    {
+                        NextPath(str);
+                    }
+                }
+
+            }
+            else
+            {
+                Tuple<bool, String> res = checkDirectory(path);
+                if (res.Item1)
+                {
+                    currentDirectory = res.Item2;
+                }
+                else
+                {
+                    Console.WriteLine("no such file or directory");
+                }
+            }
+        }
+
+        private void NextPath(string path)
+        {
+            switch (path)
+            {
+                case "..": //back directory                        
+                    if (!currentDirectory.Equals("/") && !currentDirectory.Equals(rootDirectory))
+                    {
+                        currentDirectory = Directory.GetParent(currentDirectory).FullName;
+                    }
+                    break;
+                case ".": // empty 
+                    break;
+                case "--":
+                    currentDirectory = rootDirectory;
+                    break;
+                default:
+                    DefaultNextPath(path);
+                    break;
+            }
+        }
+
         /// <summary>
         /// Opens all setted files, concats it's to one line 
         /// </summary>
@@ -49,7 +104,7 @@ namespace Shell
             base.output = "";
             if (base.args.Count() == Command.NoArgsCount)
             {
-                currentDirectory = roodDirectory;
+                currentDirectory = rootDirectory;
                 PrintCurrentDir();
                 return;
             }
@@ -57,29 +112,7 @@ namespace Shell
             if (base.args.Last() != null && base.args.Last().Type == TypeCode.String) 
             {
                 String toDirectory = base.args.Last().Content;
-
-                switch (toDirectory) 
-                {
-                    case ".." : //back directory                        
-                        if (!currentDirectory.Equals("/") && !currentDirectory.Equals(roodDirectory)) 
-                        {
-                            currentDirectory = Directory.GetParent(currentDirectory).FullName;
-                        }
-                        break;
-
-                    case "." : // empty 
-                        break;
-                    
-                    default:
-                        Tuple<bool, String> res = checkDirectory(toDirectory); 
-                        if (res.Item1) 
-                        {
-                            currentDirectory = res.Item2;
-                        } else {
-                            Console.WriteLine("no such file or directory");
-                        }
-                        break;
-                }   
+                NextPath(toDirectory);
                 PrintCurrentDir();        
             }
             else 

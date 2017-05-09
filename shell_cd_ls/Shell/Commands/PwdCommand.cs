@@ -15,7 +15,7 @@ namespace Shell
         /// </summary>
         public override void CreateOutput()
         {
-            base.output = Directory.GetCurrentDirectory();
+            base.output = Command.currentDirectory;
             base.CreateOutput();
         }
 

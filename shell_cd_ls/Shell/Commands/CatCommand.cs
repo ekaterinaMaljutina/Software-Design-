@@ -30,11 +30,12 @@ namespace Shell
                 {
                     continue;
                 }
-                if (!(new FileInfo(arg.Content).Exists))
+                Console.WriteLine("context = " + Command.currentDirectory + arg.Content);
+                if (!(new FileInfo(Command.currentDirectory + "\\" + arg.Content).Exists))
                 {
                     continue;
                 }
-                StreamReader file = new StreamReader(arg.Content);
+                StreamReader file = new StreamReader(Command.currentDirectory + "\\"  + arg.Content);
                 base.output += file.ReadToEnd();
                 file.Close();
             }
