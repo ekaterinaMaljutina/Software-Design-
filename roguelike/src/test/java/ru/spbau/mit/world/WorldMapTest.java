@@ -22,7 +22,7 @@ public class WorldMapTest {
 
     @Test
     public void parseTest() throws IOException {
-        String name = "map.txt";
+        String name = "./src/test/resources/map.txt";
         FileWriter file = new FileWriter(name);
         BufferedWriter bufferedWriter= new BufferedWriter(file);
         bufferedWriter.write(H + " " + W + "\n");
