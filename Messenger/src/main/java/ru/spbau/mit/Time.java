@@ -12,5 +12,4 @@ public class Time {
         LocalDateTime now = LocalDateTime.now();
         return FORMAT_TIME.format(now);
     }
-
 }

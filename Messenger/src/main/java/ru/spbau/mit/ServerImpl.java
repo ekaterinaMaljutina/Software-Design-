@@ -24,11 +24,15 @@ public class ServerImpl extends ChatServiceGrpc.ChatServiceImplBase {
                         .newBuilder()
                         .setMessage(value)
                         .build();
-                observers.stream().forEach(observer -> observer.onNext(message));
+                try {
+                    observers.stream().forEach(observer -> observer.onNext(message));
+                } catch (Exception ex) {
+                }
             }
 
             @Override
-            public void onError(Throwable t) { }
+            public void onError(Throwable t) {
+            }
 
             @Override
             public void onCompleted() {
