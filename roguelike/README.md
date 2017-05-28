@@ -57,7 +57,7 @@
 
 **Интерфейс**
 -
-![интерфейс](https://github.com/ekaterinaMaljutina/Software-Design/blob/2f0d1e8944e8bcbd88153c19d2b7482c6937cde9/roguelike/interface.png)
+![интерфейс](https://github.com/ekaterinaMaljutina/Software-Design/blob/roguelike_RPG_impl/roguelike/interface.png)
 
 Для реализованной игры можно описать следующих персонажей.
 
