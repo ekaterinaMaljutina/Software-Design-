@@ -6,6 +6,9 @@ import ru.spbau.mit.moves.map.WorldMap;
 
 import java.util.Random;
 
+/**
+ * Random strategy, for every creature it moves randomly
+ */
 public class MobRandomStrategy implements Strategy {
 
     private static Random random = new Random();

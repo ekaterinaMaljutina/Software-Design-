@@ -2,6 +2,8 @@ package ru.spbau.mit.ui;
 
 import asciiPanel.AsciiPanel;
 import com.sun.istack.internal.NotNull;
+import ru.spbau.mit.gameObject.GameObject.Item.Kit;
+import ru.spbau.mit.gameObject.GameObject.Item.Shield;
 import ru.spbau.mit.gameObject.ObjectCreator.hero.Hero;
 import ru.spbau.mit.gameObject.ObjectCreator.mob.Orc;
 import ru.spbau.mit.gameObject.ObjectCreator.mob.Troll;
@@ -10,6 +12,9 @@ import ru.spbau.mit.moves.map.WorldMap;
 
 import java.awt.*;
 
+/**
+ * Draw world's map
+ */
 public class DrawMap implements MoveObject {
 
     private static final char BUSY_CELL = '#';
@@ -18,6 +23,8 @@ public class DrawMap implements MoveObject {
     private static final char HERO = '@';
     private static final char TROLL = '&';
     private static final char ORCL = '*';
+    private static final char KIT = '!';
+    private static final char SHIELD = 'O';
 
     private static final Color BUSY_COLOR = Color.DARK_GRAY;
     private static final Color EMPTY_COLOR = Color.WHITE;
@@ -25,6 +32,8 @@ public class DrawMap implements MoveObject {
     private static final Color HERO_COLOR = Color.MAGENTA;
     private static final Color TROLL_COLOR = Color.BLUE;
     private static final Color ORCL_COLOR = Color.CYAN;
+    private static final Color KIT_COLOR = Color.RED;
+    private static final Color SHIELD_COLOR = Color.YELLOW;
 
     private static final int START_HERO_PORITION_X = 0;
     private static final int START_HERO_PORITION_Y = 3;
@@ -91,6 +100,16 @@ public class DrawMap implements MoveObject {
     @Override
     public void move(@NotNull final Orc mob) {
         drawPosition(mob.getPosition().getX(), mob.getPosition().getY(), ORCL, ORCL_COLOR);
+    }
+
+    @Override
+    public void move(@NotNull Kit kit) {
+        drawPosition(kit.getPosition().getX(), kit.getPosition().getY(), KIT, KIT_COLOR);
+    }
+
+    @Override
+    public void move(@NotNull Shield shield) {
+        drawPosition(shield.getPosition().getX(), shield.getPosition().getY(), SHIELD, SHIELD_COLOR);
     }
 
     private void drawPosition(int x, int y, char symbolType, Color colorSymbol) {

@@ -12,6 +12,10 @@ import java.awt.event.KeyEvent;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Input controller for keyboard
+ */
+
 public class KeyBoardInputListener extends KeyAdapter implements Strategy {
 
     private static final Logger LOGGER = LogManager.getLogger(KeyBoardInputListener.class);
@@ -23,9 +27,16 @@ public class KeyBoardInputListener extends KeyAdapter implements Strategy {
     }};
 
     private static final String KEY_TEXT = "keyText";
-
+    /**
+     * Stores not yet movement events
+     */
     private AbstractQueue<Movement> queueMoves = new PriorityQueue<>();
 
+    /**
+     * Handels key event
+     *
+     * @param e key event to handle
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         synchronized (queueMoves) {
@@ -36,7 +47,7 @@ public class KeyBoardInputListener extends KeyAdapter implements Strategy {
                     .filter(strings -> strings.length == 2)
                     .collect(Collectors.toMap(s -> s[0], s -> s[1]));
 
-            if (KEY_TO_MOVEMENT.get(pressKeyArgs.get(KEY_TEXT)) != null) {
+            if (KEY_TO_MOVEMENT.containsKey(pressKeyArgs.get(KEY_TEXT))) {
                 queueMoves.add(KEY_TO_MOVEMENT.get(pressKeyArgs.get(KEY_TEXT)));
                 queueMoves.notify();
             }
@@ -63,5 +74,4 @@ public class KeyBoardInputListener extends KeyAdapter implements Strategy {
             }
         }
     }
-
 }

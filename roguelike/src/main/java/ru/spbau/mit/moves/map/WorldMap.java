@@ -20,7 +20,12 @@ public class WorldMap {
     private int h;
     private CellType[][] map;
 
-
+    /**
+     * Read map from file
+     *
+     * @param fileName path to file
+     * @throws RuntimeException
+     */
     public WorldMap(String fileName) throws RuntimeException {
         Scanner scannerFile;
         try {
@@ -59,10 +64,22 @@ public class WorldMap {
         return h;
     }
 
+    /**
+     * Checks whether given cell is empty
+     *
+     * @param x x-coordinate of cell
+     * @param y y-coordinate of cell
+     * @return whether cell is empty
+     */
     public boolean isEmptyCell(int x, int y) {
         return x < w && x >= 0 && y < h && y >= 0 && map[y][x] == CellType.EMPTY;
     }
 
+    /**
+     * Get list of emply cell
+     *
+     * @return list with empty cell
+     */
     public List<Position> getEmptyCell() {
         List<Position> emptyPositions = new ArrayList<>();
 

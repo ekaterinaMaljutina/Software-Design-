@@ -3,16 +3,25 @@ package ru.spbau.mit.gameObject.ObjectCreator.mob;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.spbau.mit.moves.GameFrame;
 import ru.spbau.mit.moves.gamePoint.Position;
 
 import java.util.Random;
 
+/**
+ * Factory for creates mobs
+ */
 public class MobFactory {
     private static final Logger LOGGER = LogManager.getLogger(MobFactory.class);
 
     private Random random = new Random();
 
+    /**
+     * Greate mob on given position
+     *
+     * @param position position on map where mob will be created
+     * @param mobType  type of mob
+     * @return created mob
+     */
     public Mob create(Position position, MobType mobType) {
         switch (mobType) {
             case ORCL:
@@ -25,6 +34,12 @@ public class MobFactory {
         }
     }
 
+    /**
+     * Creates random mob on given position
+     *
+     * @param position position on map where mob will be created
+     * @return created mob
+     */
     public Mob createRandom(Position position) {
         return create(position, MobType.values()[random.nextInt(MobType.values().length)]);
     }

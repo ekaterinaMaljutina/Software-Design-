@@ -12,11 +12,6 @@ public class Main {
             game.run();
         } catch (RuntimeException ex) {
             System.out.println(ex.getMessage());
-            for (StackTraceElement elem : ex.getStackTrace()) {
-                System.out.println(elem);
-            }
-            System.out.println(ex.getStackTrace());
-            System.exit(1);
         }
     }
 }

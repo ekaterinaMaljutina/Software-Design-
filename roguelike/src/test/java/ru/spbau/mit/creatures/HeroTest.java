@@ -18,16 +18,17 @@ public class HeroTest {
         Hero hero = new Hero(position);
 
         Attributes attributes = hero.getAttributes();
-        int healf = attributes.getHealf();
+        int healf = attributes.getHealth();
         int attack = attributes.getAttack();
+        int defense = attributes.getDefense();
 
-        Attributes attributesForAttack = new Attributes(attack, healf);
+        Attributes attributesForAttack = new Attributes(attack, healf, defense);
         Creature creatureObj = Util.createCreature(position, attributesForAttack);
         creatureObj.attack(hero);
 
         Assert.assertFalse(hero.isLived());
 
-        attributesForAttack = new Attributes(healf, attack);
+        attributesForAttack = new Attributes(healf, attack, defense);
         Creature creatureObj1 = Util.createCreature(position, attributesForAttack);
 
         creatureObj1.attack(creatureObj);

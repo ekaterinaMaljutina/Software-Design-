@@ -16,6 +16,9 @@ public class Game {
     private World world;
     private KeyBoardInputListener strategy = new KeyBoardInputListener();
     private MobRandomStrategy mobRandomStrategy = new MobRandomStrategy();
+    /**
+     * Callback for drawing
+     */
     private Consumer<World> render = (world) -> {
     };
 
@@ -23,6 +26,9 @@ public class Game {
         world = new World(new WorldMap(PATH_TO_MAP));
     }
 
+    /**
+     * Run game
+     */
     public void run() {
         while (world.getHero().isLived()) {
             world.turn(strategy, mobRandomStrategy);
@@ -35,7 +41,7 @@ public class Game {
         return strategy;
     }
 
-    public void serRender(Consumer<World> render) {
+    public void setRender(Consumer<World> render) {
         this.render = render;
     }
 
