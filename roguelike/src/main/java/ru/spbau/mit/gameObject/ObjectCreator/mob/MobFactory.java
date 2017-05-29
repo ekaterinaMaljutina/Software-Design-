@@ -13,7 +13,7 @@ import java.util.Random;
 public class MobFactory {
     private static final Logger LOGGER = LogManager.getLogger(MobFactory.class);
 
-    private Random random = new Random();
+    private static Random random = new Random();
 
     /**
      * Greate mob on given position
@@ -22,7 +22,7 @@ public class MobFactory {
      * @param mobType  type of mob
      * @return created mob
      */
-    public Mob create(Position position, MobType mobType) {
+    public static Mob create(Position position, MobType mobType) {
         switch (mobType) {
             case ORCL:
                 return new Orc(position);
@@ -40,7 +40,7 @@ public class MobFactory {
      * @param position position on map where mob will be created
      * @return created mob
      */
-    public Mob createRandom(Position position) {
+    public static Mob createRandom(Position position) {
         return create(position, MobType.values()[random.nextInt(MobType.values().length)]);
     }
 }

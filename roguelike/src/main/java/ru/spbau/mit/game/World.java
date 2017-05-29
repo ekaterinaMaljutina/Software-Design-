@@ -36,8 +36,6 @@ public class World {
     private WorldMap map;
     private Hero hero;
 
-    private MobFactory mobFactory = new MobFactory();
-
     private List<Mob> mob = new ArrayList<>();
     private List<Item> inventory = new ArrayList<>();
     private List<Position> emptyPositions;
@@ -116,7 +114,7 @@ public class World {
         List<Position> currentEmptyPos = findEmptyPositions();
         if (!currentEmptyPos.isEmpty()) {
             Position position = currentEmptyPos.get(random.nextInt(currentEmptyPos.size()));
-            return mobFactory.createRandom(position);
+            return MobFactory.createRandom(position);
         }
         LOGGER.error("empty cell not found for create mod");
         throw new RuntimeException("empty cell not found for create mod");
