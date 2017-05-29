@@ -24,7 +24,7 @@ public class MobFactory {
      */
     public static Mob create(Position position, MobType mobType) {
         switch (mobType) {
-            case ORCL:
+            case ORC:
                 return new Orc(position);
             case TROLL:
                 return new Troll(position);

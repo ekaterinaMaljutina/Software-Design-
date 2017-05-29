@@ -8,6 +8,9 @@ import ru.spbau.mit.gameObject.GameObject.Attributes;
 import ru.spbau.mit.gameObject.GameObject.Item.Item;
 import ru.spbau.mit.gameObject.GameObject.Item.ItemFactory;
 import ru.spbau.mit.gameObject.ObjectCreator.Creature;
+import ru.spbau.mit.gameObject.ObjectCreator.mob.Mob;
+import ru.spbau.mit.gameObject.ObjectCreator.mob.MobFactory;
+import ru.spbau.mit.gameObject.ObjectCreator.mob.MobType;
 import ru.spbau.mit.moves.gamePoint.Position;
 
 import static org.mockito.Mockito.mock;
@@ -40,5 +43,16 @@ public class CreatureTest {
         item = ItemFactory.createItem(mock(Position.class), ItemFactory.TYPE.SHIELD);
         Assert.assertEquals(ItemFactory.TYPE.SHIELD.name(), item.getName().toUpperCase());
         Assert.assertEquals(new Attributes(0, 0, 1), item.getAttributes());
+    }
+
+    @Test
+    public void MobFactoryTest() {
+        Mob mob = MobFactory.create(mock(Position.class), MobType.ORC);
+        Assert.assertEquals(MobType.ORC.name(), mob.getClass().getSimpleName().toUpperCase());
+        Assert.assertEquals(new Attributes(30, 10, 0), mob.getAttributes());
+
+        mob = MobFactory.create(mock(Position.class), MobType.TROLL);
+        Assert.assertEquals(MobType.TROLL.name(), mob.getClass().getSimpleName().toUpperCase());
+        Assert.assertEquals(new Attributes(10, 5, 0), mob.getAttributes());
     }
 }

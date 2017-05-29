@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import ru.spbau.mit.gameObject.GameObject.Attributes;
 import ru.spbau.mit.gameObject.GameObject.Item.Item;
 import ru.spbau.mit.gameObject.ObjectCreator.Creature;
+import ru.spbau.mit.gameObject.ObjectCreator.mob.Mob;
 import ru.spbau.mit.moves.gamePoint.Position;
 import ru.spbau.mit.ui.MoveObject;
 
@@ -22,6 +23,13 @@ public class Util {
         return new Item(position, attributes, NAME_ITEM) {
             @Override
             public void accept(MoveObject moveObject) {}
+        };
+    }
+
+    public static Mob createMob(Position position, Attributes attributes) {
+        return new Mob(position, attributes) {
+            @Override
+            public void accept(MoveObject moveObject) { }
         };
     }
 
