@@ -22,10 +22,10 @@ public class GameFrame extends JFrame {
 
     private static final Logger LOGGER = LogManager.getLogger(GameFrame.class);
     private static final String PATH_TO_MAP = "./src/main/resources/Map.txt";
-    private static final int WINDOWS_Weight = 400;
-    private static final int WINDOWS_Height = 500;
+    private static final int WINDOWS_WIDTH = 400;
+    private static final int WINDOWS_HEIGHT = 500;
 
-    private static final String HEALF = "Healf : ";
+    private static final String HEALTH = "Health : ";
     private static final String ATTACK = "Attack : ";
     private static final String DEFENSE = "Defense : ";
     private static final String INVENTORY = "Inventory : ";
@@ -46,14 +46,14 @@ public class GameFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         try {
             map = new WorldMap(PATH_TO_MAP);
-            w = map.getWeight();
+            w = map.getWidth();
             h = map.getHeight();
             drawMap = new DrawMap(map);
         } catch (RuntimeException ex) {
             throw new RuntimeException();
         }
         panel = new AsciiPanel();
-        setSize(WINDOWS_Height, WINDOWS_Weight);
+        setSize(WINDOWS_HEIGHT, WINDOWS_WIDTH);
         add(panel);
         setResizable(false);
         setLocationRelativeTo(null);
@@ -61,7 +61,7 @@ public class GameFrame extends JFrame {
         updataDrawGame(game.getWorld());
         game.setRender(this::updataDrawGame);
 
-        addKeyListener(game.getHeroListner());
+        addKeyListener(game.getHeroListener());
 
         drawAttributes(game.getWorld().getHero());
 
@@ -91,11 +91,11 @@ public class GameFrame extends JFrame {
      * @param hero hero
      */
     private void drawAttributes(Hero hero) {
-        panel.setCursorPosition(map.getWeight() + OFFSET, 0);
-        panel.write(HEALF + hero.getAttributes().getHealth());
-        panel.setCursorPosition(map.getWeight() + OFFSET, 1);
+        panel.setCursorPosition(map.getWidth() + OFFSET, 0);
+        panel.write(HEALTH + hero.getAttributes().getHealth());
+        panel.setCursorPosition(map.getWidth() + OFFSET, 1);
         panel.write(ATTACK + hero.getAttack());
-        panel.setCursorPosition(map.getWeight() + OFFSET, 2);
+        panel.setCursorPosition(map.getWidth() + OFFSET, 2);
         panel.write(DEFENSE + hero.getDefense());
     }
 
@@ -105,7 +105,7 @@ public class GameFrame extends JFrame {
      * @param hero hero
      */
     private void drawInvetory(Hero hero) {
-        int xCursorPosition = map.getWeight() + OFFSET;
+        int xCursorPosition = map.getWidth() + OFFSET;
         int yCursorPosition = 5;
         panel.setCursorPosition(xCursorPosition, yCursorPosition);
         panel.write(INVENTORY);

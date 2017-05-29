@@ -37,7 +37,7 @@ public class Game {
         LOGGER.info("HERO KILLED");
     }
 
-    public KeyBoardInputListener getHeroListner() {
+    public KeyBoardInputListener getHeroListener() {
         return strategy;
     }
 

@@ -10,10 +10,10 @@ public class Shield extends Item {
      * Shield attributes
      */
     public static final String NAME = "Shield";
-    private static final int HEALF = 0;
+    private static final int HEALTH = 0;
     public static final int ATTACK = 0;
     public static final int DEFENSE = 1;
-    public static final Attributes ATTRIBUTES = new Attributes(HEALF, ATTACK, DEFENSE);
+    public static final Attributes ATTRIBUTES = new Attributes(HEALTH, ATTACK, DEFENSE);
 
 
     public Shield(Position position) {

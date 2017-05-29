@@ -56,7 +56,7 @@ public class WorldMap {
         }
     }
 
-    public int getWeight() {
+    public int getWidth() {
         return w;
     }
 

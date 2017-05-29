@@ -2,18 +2,18 @@ package ru.spbau.mit.gameObject.GameObject;
 
 
 public class Attributes {
-    private int healf = 0;
+    private int health = 0;
     private int attack = 0;
     private int defense = 0;
 
-    public Attributes(int healf, int attack, int defense) {
-        this.healf = healf;
+    public Attributes(int health, int attack, int defense) {
+        this.health = health;
         this.attack = attack;
         this.defense = defense;
     }
 
     public int getHealth() {
-        return healf;
+        return health;
     }
 
     public int getAttack() {
@@ -31,7 +31,7 @@ public class Attributes {
      * @param delta number of health
      */
     public void subHealf(int delta) {
-        healf = subValue(delta, healf);
+        health = subValue(delta, health);
     }
 
     /**
@@ -58,7 +58,7 @@ public class Attributes {
     public boolean equals(Object obj) {
         if (obj instanceof Attributes) {
             Attributes attributes = (Attributes) obj;
-            return healf == attributes.getHealth() && attack == attributes.getAttack();
+            return health == attributes.getHealth() && attack == attributes.getAttack();
         }
         return false;
     }
