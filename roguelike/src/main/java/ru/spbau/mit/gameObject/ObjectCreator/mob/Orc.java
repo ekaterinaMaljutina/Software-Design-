@@ -5,10 +5,11 @@ import ru.spbau.mit.gameObject.GameObject.Attributes;
 import ru.spbau.mit.moves.gamePoint.Position;
 import ru.spbau.mit.ui.MoveObject;
 
+/**
+ * Orc attributes
+ */
 public class Orc extends Mob {
-    /**
-     * Orc attributes
-     */
+
     private static final int HEALTH = 30;
     private static final int ATTACK = 10;
     private static final int DEFENSE = 0;

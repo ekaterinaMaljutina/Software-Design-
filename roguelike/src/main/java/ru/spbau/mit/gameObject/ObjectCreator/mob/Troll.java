@@ -4,10 +4,11 @@ import ru.spbau.mit.gameObject.GameObject.Attributes;
 import ru.spbau.mit.moves.gamePoint.Position;
 import ru.spbau.mit.ui.MoveObject;
 
+/**
+ * Troll attributes
+ */
 public class Troll extends Mob {
-    /**
-     * Troll attributes
-     */
+
     private static final int HEALTH = 10;
     private static final int ATTACK = 5;
     private static final int DEFENSE = 0;
