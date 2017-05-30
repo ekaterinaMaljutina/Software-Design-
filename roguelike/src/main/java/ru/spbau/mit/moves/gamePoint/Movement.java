@@ -8,5 +8,6 @@ public enum Movement {
     RIHGT,
     UP,
     DOWN,
+    TASK_OFF,
     NONE
 }

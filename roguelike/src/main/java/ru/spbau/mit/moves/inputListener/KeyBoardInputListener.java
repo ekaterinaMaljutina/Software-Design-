@@ -24,6 +24,7 @@ public class KeyBoardInputListener extends KeyAdapter implements Strategy {
         put("Up", Movement.UP);
         put("Left", Movement.LEFT);
         put("Right", Movement.RIHGT);
+        put("W", Movement.TASK_OFF);
     }};
 
     private static final String KEY_TEXT = "keyText";
@@ -46,7 +47,6 @@ public class KeyBoardInputListener extends KeyAdapter implements Strategy {
                     .map(s -> s.split("="))
                     .filter(strings -> strings.length == 2)
                     .collect(Collectors.toMap(s -> s[0], s -> s[1]));
-
             if (KEY_TO_MOVEMENT.containsKey(pressKeyArgs.get(KEY_TEXT))) {
                 queueMoves.add(KEY_TO_MOVEMENT.get(pressKeyArgs.get(KEY_TEXT)));
                 queueMoves.notify();

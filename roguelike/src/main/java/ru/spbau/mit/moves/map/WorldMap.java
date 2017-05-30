@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Class for storing game map
+ */
 public class WorldMap {
 
     private static final Logger LOGGER = LogManager.getLogger(WorldMap.class);

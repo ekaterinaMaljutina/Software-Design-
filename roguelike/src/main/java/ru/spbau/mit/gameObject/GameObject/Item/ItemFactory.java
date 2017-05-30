@@ -10,6 +10,9 @@ import java.util.Random;
  */
 public class ItemFactory {
 
+    /**
+     * Type of item could be created.
+     */
     public static enum TYPE {
         KIT,
         SHIELD

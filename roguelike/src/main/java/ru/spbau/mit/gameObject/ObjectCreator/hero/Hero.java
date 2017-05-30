@@ -9,6 +9,9 @@ import ru.spbau.mit.ui.MoveObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementation hero
+ */
 public class Hero extends Creature {
 
     /**

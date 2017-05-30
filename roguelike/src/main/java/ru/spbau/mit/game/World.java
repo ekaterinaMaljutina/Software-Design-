@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import ru.spbau.mit.gameObject.GameObject.GameObject;
 import ru.spbau.mit.gameObject.GameObject.Item.Item;
 import ru.spbau.mit.gameObject.GameObject.Item.ItemFactory;
+import ru.spbau.mit.gameObject.GameObject.Item.Shield;
 import ru.spbau.mit.gameObject.ObjectCreator.hero.Hero;
 import ru.spbau.mit.gameObject.ObjectCreator.mob.Mob;
 import ru.spbau.mit.gameObject.ObjectCreator.mob.MobFactory;
@@ -18,6 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Create of game  world (random mobs,random items, hero).
+ */
 public class World {
 
     private static final Logger LOGGER = LogManager.getLogger(World.class);
@@ -78,6 +82,9 @@ public class World {
         }
         for (int i = 0; i < mob.size(); i++) {
             mob.get(i).move(map, movementsMob.get(i));
+        }
+        if (heroCurrentMove == Movement.TASK_OFF) {
+            removeItem();
         }
         applyItem();
         intesectionHeroWithMob();
@@ -167,6 +174,16 @@ public class World {
         throw new RuntimeException("all position was busy");
     }
 
+    private Item createItemShield() {
+        List<Position> emptyPositionsList = findEmptyPositions();
+        if (!emptyPositionsList.isEmpty()) {
+            Position itemPosition = emptyPositionsList.get(random.nextInt(emptyPositionsList.size()));
+            return ItemFactory.createItem(itemPosition, ItemFactory.TYPE.SHIELD);
+        }
+        LOGGER.info("Runtime Exeption - all position was busy");
+        throw new RuntimeException("all position was busy");
+    }
+
     /**
      * Fight hero with all mobs which are placed on same cell with him.
      */
@@ -210,5 +227,19 @@ public class World {
                 break;
             }
         }
+    }
+
+    private void removeItem() {
+        List<Item> items = hero.getInventory();
+        int idx = 0;
+        for (Item item : items) {
+            if (item.getActive() && item.getName() == Shield.NAME) {
+                hero.applyItem(idx);
+                inventory.add(createItemShield());
+                break;
+            }
+            idx++;
+        }
+
     }
 }

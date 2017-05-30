@@ -5,7 +5,9 @@ import ru.spbau.mit.gameObject.ObjectCreator.Creature;
 import ru.spbau.mit.moves.gamePoint.Movement;
 import ru.spbau.mit.moves.map.WorldMap;
 
-
+/**
+ * Base interface for interaction implementation.
+ */
 public interface Strategy {
     /**
      * Get movement from current position of given creature

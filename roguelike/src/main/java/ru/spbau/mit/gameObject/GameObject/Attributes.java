@@ -1,6 +1,9 @@
 package ru.spbau.mit.gameObject.GameObject;
 
 
+/**
+ * Base class for any attribute
+ */
 public class Attributes {
     private int health = 0;
     private int attack = 0;
@@ -30,7 +33,7 @@ public class Attributes {
      *
      * @param delta number of health
      */
-    public void subHealf(int delta) {
+    public void subHealth(int delta) {
         health = subValue(delta, health);
     }
 

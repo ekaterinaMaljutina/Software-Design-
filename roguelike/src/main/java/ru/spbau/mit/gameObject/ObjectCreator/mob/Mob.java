@@ -5,7 +5,7 @@ import ru.spbau.mit.gameObject.ObjectCreator.Creature;
 import ru.spbau.mit.moves.gamePoint.Position;
 
 /**
- * Class for different mobs
+ * Base class for any mobs
  */
 public abstract class Mob extends Creature {
     public Mob(Position position, Attributes attributes) {

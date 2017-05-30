@@ -11,11 +11,11 @@ public class Position {
     /**
      * Offset for Y-axis in order of {@link Movement} enum
      */
-    private static final int[] MOVE_VALUE_Y = {-1, 1, 0, 0, 0};
+    private static final int[] MOVE_VALUE_Y = {-1, 1, 0, 0, 0, 0, 0};
     /**
      * Offset for X-axis in order of {@link Movement} enum
      */
-    private static final int[] MOVE_VALUE_X = {0, 0, -1, 1, 0};
+    private static final int[] MOVE_VALUE_X = {0, 0, -1, 1, 0, 0, 0};
 
     private int x;
     private int y;

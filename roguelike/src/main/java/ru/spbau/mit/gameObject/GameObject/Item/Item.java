@@ -4,6 +4,9 @@ import ru.spbau.mit.gameObject.GameObject.Attributes;
 import ru.spbau.mit.gameObject.GameObject.GameObject;
 import ru.spbau.mit.moves.gamePoint.Position;
 
+/**
+ * Base class for any item
+ */
 abstract public class Item extends GameObject {
     /**
      * Name of item

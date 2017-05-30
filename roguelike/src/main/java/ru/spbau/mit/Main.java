@@ -3,6 +3,9 @@ package ru.spbau.mit;
 import ru.spbau.mit.game.Game;
 import ru.spbau.mit.moves.GameFrame;
 
+/**
+ * Main class, which run game
+ */
 public class Main {
     public static void main(String[] args) {
         try {

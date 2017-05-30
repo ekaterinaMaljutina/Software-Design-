@@ -8,6 +8,9 @@ import ru.spbau.mit.moves.map.WorldMap;
 
 import java.util.function.Consumer;
 
+/**
+ * Class with implantations game logic( have waits movement while hero is alive)
+ */
 public class Game {
 
     private static final Logger LOGGER = LogManager.getLogger(Game.class);

@@ -10,6 +10,9 @@ import ru.spbau.mit.moves.gamePoint.Position;
 import ru.spbau.mit.moves.map.WorldMap;
 
 
+/**
+ * Class for different creatures in our game(and for user's hero too).
+ */
 public abstract class Creature extends GameObject {
 
     private static final Logger LOGGER = LogManager.getLogger(Creature.class);
@@ -43,7 +46,7 @@ public abstract class Creature extends GameObject {
      * @param creature
      */
     public void attack(Creature creature) {
-        creature.getAttributes().subHealf(
+        creature.getAttributes().subHealth(
                 Math.max(0, attributes.getAttack() - creature.getAttributes().getDefense()));
     }
 
@@ -56,9 +59,9 @@ public abstract class Creature extends GameObject {
     public void applyItem(Item item, boolean active) {
         int val = -1;
         if (!active) {
-            val = 0;
+            val = 1;
         }
-        attributes.subHealf(item.getHealth() * val);
+        attributes.subHealth(item.getHealth() * val);
         attributes.subAttack(item.getAttack() * val);
         attributes.subDefense(item.getDefense() * val);
 
