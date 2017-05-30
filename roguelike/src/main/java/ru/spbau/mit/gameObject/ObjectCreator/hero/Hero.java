@@ -20,7 +20,7 @@ public class Hero extends Creature {
     private static final int HEALTH = 100;
     private static final int ATTACK = 10;
     private static final int DEFENSE = 1;
-    private static final Attributes attributes = new Attributes(HEALTH, ATTACK, DEFENSE);
+    private static final Attributes attr = new Attributes(HEALTH, ATTACK, DEFENSE);
 
     /**
      * List of the hero's items
@@ -28,7 +28,7 @@ public class Hero extends Creature {
     private List<Item> inventory = new ArrayList<>();
 
     public Hero(Position position) {
-        super(position, attributes);
+        super(position, attr);
     }
 
     @Override

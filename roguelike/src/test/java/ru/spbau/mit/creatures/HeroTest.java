@@ -20,12 +20,12 @@ public class HeroTest {
         Position position = mock(Position.class);
         Hero hero = new Hero(position);
 
-        Attributes attributes = hero.getAttributes();
-        int health = attributes.getHealth();
+        Attributes attr = hero.getAttributes();
+        int health = attr.getHealth();
         Assert.assertEquals(100, health);
-        int attack = attributes.getAttack();
+        int attack = attr.getAttack();
         Assert.assertEquals(10, attack);
-        int defense = attributes.getDefense();
+        int defense = attr.getDefense();
         Assert.assertEquals(1, defense);
 
         Attributes attributesForAttack = new Attributes(attack, health, defense);

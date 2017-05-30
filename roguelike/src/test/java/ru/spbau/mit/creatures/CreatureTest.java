@@ -31,7 +31,7 @@ public class CreatureTest {
 
         /* appply not active item */
         creature.applyItem(item, false);
-        Assert.assertEquals(new Attributes(15, 1, 2), creature.getAttributes());
+        Assert.assertEquals(new Attributes(10, 1, 1), creature.getAttributes());
     }
 
     @Test
