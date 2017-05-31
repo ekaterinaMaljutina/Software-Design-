@@ -137,6 +137,7 @@
 
 
 ## Диаграмма классов <a name="Диаграмма-классов"></a>
+![Диаграмма классов](https://github.com/ekaterinaMaljutina/Software-Design/blob/roguelike_RPG_impl/roguelike/UML/classDiagram.png)
 
 ## Диаграммы последовательностей и конечных автоматов <a name="Диаграммы"></a>
 
@@ -144,4 +145,4 @@
 
 ![Диаграмма конечных автоматов](https://github.com/ekaterinaMaljutina/Software-Design/blob/roguelike_RPG_impl/roguelike/UML/stateDiagram.png)
 
-Диаграммы последовательностей и конечных автоматов лежат [тут](https://github.com/ekaterinaMaljutina/Software-Design/tree/roguelike_RPG_impl/roguelike/UML).
+Cами диаграммы лежат [тут](https://github.com/ekaterinaMaljutina/Software-Design/tree/roguelike_RPG_impl/roguelike/UML).
